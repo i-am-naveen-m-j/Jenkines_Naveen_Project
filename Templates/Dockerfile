@@ -1,14 +1,15 @@
-# Use a Maven base image
-FROM maven:3.8.4-openjdk-11-slim
+# Base image
+FROM tomcat:latest
 
-# Set the working directory
-WORKDIR /app
+# Remove the default ROOT application
+RUN rm -rf /usr/local/tomcat/webapps/ROOT
 
-# Copy the project files to the container
-COPY . /app
+# Copy the WAR file to the container's webapps directory
+COPY yourapp.war /usr/local/tomcat/webapps/ROOT.war
 
-# Build the project using Maven
-RUN mvn clean package
+# Expose the default Tomcat port
+EXPOSE 8080
 
-# Set the entry point to execute Maven commands
-ENTRYPOINT ["mvn"]
+# Start Tomcat when the container starts
+CMD ["catalina.sh", "run"]
+
