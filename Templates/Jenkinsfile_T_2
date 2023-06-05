@@ -9,10 +9,16 @@ pipeline {
         stage('Stage 1') {
             steps {
                 echo 'Running Stage 1...'
+                
                 sh 'echo "Sample shell script for Stage 1"'
+                
+                sh 'pwd' // Example: executing 'pwd' command
                 sh 'ls -l' // Example: executing 'ls' command
+                
                 sh 'cd Templates'
+                sh 'pwd' // Example: executing 'pwd' command
                 sh 'ls -l' // Example: executing 'ls' command
+                sh 'cat Dockerfile'
             }
         }
         stage('Stage 2') {
@@ -22,13 +28,7 @@ pipeline {
                 sh 'pwd' // Example: executing 'pwd' command
             }
         }
-        stage('Stage 3') {
-            steps {
-                echo 'Running Stage 3...'
-                sh 'echo "Sample shell script for Stage 3"'
-                sh 'echo "Hello, World!"' // Example: echoing a message
-            }
-        }
+      
         // Add more stages as needed
     }
 }
