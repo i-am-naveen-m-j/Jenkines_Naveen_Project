@@ -1,7 +1,8 @@
 pipeline {
     agent {
         docker {
-            image 'ubuntu:latest'
+            //image 'ubuntu:latest'
+              image 'naveen782/maven_agent'
         }
     }
 
@@ -12,13 +13,20 @@ pipeline {
                 
                 sh 'echo "Sample shell script for Stage 1"'
                 
+                 echo 'Check Java version:'
+                  sh 'java -version'
+
+                 echo 'Check Maven version:'
+                  sh 'mvn -version'
+                
+                
                 sh 'pwd' // Example: executing 'pwd' command
                 sh 'ls -l' // Example: executing 'ls' command
                 
                 sh 'cd Templates'
                 sh 'pwd' // Example: executing 'pwd' command
                 sh 'ls -l' // Example: executing 'ls' command
-                sh 'cat Templates/Dockerfile'
+                
             }
         }
         stage('Stage 2') {
