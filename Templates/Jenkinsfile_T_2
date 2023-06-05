@@ -11,6 +11,8 @@ pipeline {
                 echo 'Running Stage 1...'
                 sh 'echo "Sample shell script for Stage 1"'
                 sh 'ls -l' // Example: executing 'ls' command
+                sh 'cd Templates'
+                sh 'ls -l' // Example: executing 'ls' command
             }
         }
         stage('Stage 2') {
