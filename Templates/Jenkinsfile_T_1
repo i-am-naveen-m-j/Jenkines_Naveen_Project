@@ -3,7 +3,7 @@ pipeline {
     agent {
    // docker { image 'node:16-alpine' }
    // docker { image 'abhishekf5/maven-abhishek-docker-agent:v1' }
-   // docker { image 'naveen782/maven_agent' }
+    docker { image 'naveen782/maven_agent:v1' }
   }
 
     stages {
