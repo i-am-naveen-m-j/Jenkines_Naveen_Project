@@ -1,15 +1,15 @@
-# Base image
-FROM tomcat:latest
+# You can change this base image to anything else
+# But make sure to use the correct version of Java
+FROM adoptopenjdk/openjdk11:alpine-jre
 
-# Remove the default ROOT application
-RUN rm -rf /usr/local/tomcat/webapps/ROOT
+# Simply the artifact path
+ARG artifact=target/spring-boot-web.jar
 
-# Copy the WAR file to the container's webapps directory
-COPY yourapp.war /usr/local/tomcat/webapps/ROOT.war
+WORKDIR /opt/app
 
-# Expose the default Tomcat port
-EXPOSE 8080
+COPY ${artifact} app.jar
 
-# Start Tomcat when the container starts
-CMD ["catalina.sh", "run"]
+# This should not be changed
+ENTRYPOINT ["java","-jar","app.jar"]
+
 
