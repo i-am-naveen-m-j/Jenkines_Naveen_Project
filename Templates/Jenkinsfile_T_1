@@ -9,6 +9,7 @@ pipeline {
         stage('Stage 1') {
             steps {
                 echo 'Running Stage 1...'
+                sh 'ls -ltr'
                 sh 'echo "Shell script for Stage 1"'
             }
         }
