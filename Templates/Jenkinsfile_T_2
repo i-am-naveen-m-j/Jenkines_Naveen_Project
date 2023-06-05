@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             //image 'ubuntu:latest'
-              image 'naveen782/maven_agent'
+              image 'naveen782/maven_agent:v1'
         }
     }
 
