@@ -2,9 +2,6 @@ pipeline {
     agent {
         docker {
             image 'ubuntu:latest'
-            //image 'your-docker-image:tag'
-            //registryUrl 'https://your-docker-registry'
-            //registryCredentialsId 'your-docker-credentials-id'
         }
     }
 
@@ -13,18 +10,21 @@ pipeline {
             steps {
                 echo 'Running Stage 1...'
                 sh 'echo "Sample shell script for Stage 1"'
+                sh 'ls -l' // Example: executing 'ls' command
             }
         }
         stage('Stage 2') {
             steps {
                 echo 'Running Stage 2...'
                 sh 'echo "Sample shell script for Stage 2"'
+                sh 'pwd' // Example: executing 'pwd' command
             }
         }
         stage('Stage 3') {
             steps {
                 echo 'Running Stage 3...'
                 sh 'echo "Sample shell script for Stage 3"'
+                sh 'echo "Hello, World!"' // Example: echoing a message
             }
         }
         // Add more stages as needed
